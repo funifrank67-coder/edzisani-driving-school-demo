@@ -1,0 +1,908 @@
+/* ========================================
+   EDZISANI DRIVING SCHOOL - PREMIUM REFINED CSS
+   All 10 improvements implemented
+   Dark Theme | Black Dominant | Red Accents
+   Fully Responsive
+======================================== */
+
+/* ----- RESET & BASE ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ----- TYPOGRAPHY HIERARCHY (Refinement #4) ----- */
+h1, h2, h3, h4 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: #e63946;
+}
+
+p {
+    max-width: 70ch; /* Controlled paragraph width for readability */
+    margin-bottom: 1rem;
+}
+
+h1 span, h2 span, .red-text {
+    color: #e63946;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem; /* More breathing space (Refinement #3) */
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 3px;
+    background-color: #e63946;
+    border-radius: 2px;
+}
+
+/* ----- DEPTH HIERARCHY BETWEEN SECTIONS (Refinement #1 & #7) ----- */
+.section {
+    padding: 5rem 2rem;
+    position: relative;
+}
+
+/* Alternating section depth */
+.section:not(.bg-dark):nth-child(even) {
+    background-color: #0d0d0d;
+}
+
+.bg-dark {
+    background-color: #050505;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), inset 0 -1px 0 rgba(255,255,255,0.03);
+}
+
+/* Hero gets unique depth */
+.hero {
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+/* Footer depth separation */
+footer {
+    position: relative;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+}
+
+/* ----- TOP BAR ----- */
+.top-bar {
+    background-color: #050505;
+    padding: 0.6rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #2a2a2a;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
+}
+
+.social-icons a {
+    color: #cccccc;
+    margin-right: 1.2rem;
+    font-size: 1rem;
+    transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1); /* Smoother transition (Refinement #6) */
+}
+
+.social-icons a:hover {
+    color: #e63946;
+    transform: translateY(-2px);
+}
+
+.contact-mini span {
+    font-size: 0.85rem;
+    color: #cccccc;
+}
+
+/* ----- HEADER & HAMBURGER ----- */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+    background-color: #0a0a0a;
+    border-bottom: 1px solid #2a2a2a;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(0px);
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    z-index: 1001;
+    padding: 5px;
+}
+
+.hamburger:hover {
+    color: #e63946;
+    transform: scale(1.05);
+}
+
+/* ----- SIDEBAR (Premium motion feel - Refinement #8) ----- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #050505;
+    z-index: 2000;
+    transition: left 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1); /* Smoother motion */
+    box-shadow: 4px 0 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8rem 1.5rem;
+    border-bottom: 1px solid #e63946;
+}
+
+.sidebar-header h3 {
+    color: #e63946;
+    margin-bottom: 0;
+    font-size: 1.3rem;
+}
+
+.close-sidebar {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0 8px;
+}
+
+.close-sidebar:hover {
+    color: #e63946;
+    transform: rotate(90deg);
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 1.5rem 0;
+    flex-grow: 1;
+}
+
+.sidebar-nav li a {
+    display: block;
+    padding: 0.9rem 1.8rem;
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    border-left: 3px solid transparent;
+    font-weight: 500;
+}
+
+.sidebar-nav li a i {
+    width: 30px;
+    margin-right: 12px;
+    text-align: center;
+}
+
+.sidebar-nav li a:hover {
+    background-color: #141414;
+    color: #e63946;
+    border-left-color: #e63946;
+    padding-left: 2rem;
+}
+
+/* Clearer active state perception (Refinement #8) */
+.sidebar-nav li a.active {
+    background-color: rgba(230, 57, 70, 0.1);
+    color: #e63946;
+    border-left-color: #e63946;
+    font-weight: 600;
+}
+
+.sidebar-social {
+    padding: 1.8rem;
+    text-align: center;
+    border-top: 1px solid #2a2a2a;
+}
+
+.sidebar-social a {
+    color: #cccccc;
+    margin: 0 0.8rem;
+    font-size: 1.3rem;
+    transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    display: inline-block;
+}
+
+.sidebar-social a:hover {
+    color: #e63946;
+    transform: translateY(-3px);
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(3px);
+    z-index: 1500;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+/* ----- HERO SECTION ----- */
+.hero {
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1.2rem;
+}
+
+.hero-content p {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+}
+
+/* ----- BUTTONS - Unified family (Refinement #6) ----- */
+.btn-red, .btn-outline, .btn-small, .whatsapp-btn {
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-red {
+    display: inline-block;
+    background-color: #e63946;
+    color: #ffffff;
+    padding: 12px 32px;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+}
+
+.btn-red:hover {
+    background-color: #c1121f;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.3);
+}
+
+.btn-outline {
+    display: inline-block;
+    background: transparent;
+    border: 2px solid #e63946;
+    color: #e63946;
+    padding: 10px 28px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn-outline:hover {
+    background: #e63946;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-small {
+    display: inline-block;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    padding: 8px 24px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn-small:hover {
+    background-color: #e63946;
+    transform: translateY(-2px);
+}
+
+/* ----- CONTAINER & SPACING RHYTHM (Refinement #3) ----- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Consistent vertical spacing */
+section + section {
+    margin-top: 0;
+}
+
+/* ----- CARDS - Premium material feel (Refinement #2) ----- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2.5rem 0;
+}
+
+.card {
+    background-color: #141414;
+    padding: 2.2rem 1.8rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    border-left: 4px solid #e63946;
+    /* Layered shadow for depth */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card i {
+    font-size: 2.8rem;
+    color: #e63946;
+    margin-bottom: 1.2rem;
+}
+
+.card h3 {
+    margin-bottom: 0.8rem;
+}
+
+.card p {
+    margin-bottom: 0;
+}
+
+/* ----- PRICE CARDS ----- */
+.price-card {
+    background-color: #141414;
+    padding: 2.2rem 1.8rem;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px -10px rgba(0,0,0,0.5);
+}
+
+.price-card.popular {
+    border: 2px solid #e63946;
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.15);
+}
+
+.price-card.popular:hover {
+    transform: scale(1.02) translateY(-5px);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: #e63946;
+    color: white;
+    padding: 4px 14px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.price {
+    font-size: 2.2rem;
+    color: #e63946;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.price-card ul {
+    list-style: none;
+    margin: 1.2rem 0;
+    padding: 0;
+}
+
+.price-card li {
+    margin: 0.6rem 0;
+    color: #cccccc;
+}
+
+/* ----- TESTIMONIALS ----- */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial {
+    background-color: #141414;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.testimonial:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+}
+
+.testimonial i {
+    font-size: 2rem;
+    color: #e63946;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.testimonial h4 {
+    color: #e63946;
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+/* ----- GALLERY ----- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.8rem;
+}
+
+.gallery-item {
+    background-color: #141414;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 25px -12px rgba(0,0,0,0.4);
+}
+
+.placeholder-img {
+    background: linear-gradient(135deg, #1a1a1a 0%, #141414 100%);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #e63946;
+}
+
+.placeholder-img i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+/* ----- CONTACT PAGE ----- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.contact-grid p {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-grid i {
+    width: 30px;
+    font-size: 1.2rem;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 1.2rem;
+    background-color: #141414;
+    border: 1px solid #2a2a2a;
+    color: #ffffff;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: #e63946;
+    box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.2);
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    padding: 14px 32px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+}
+
+.whatsapp-btn i {
+    margin-right: 10px;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+/* ----- FOOTER REFINEMENT ----- */
+footer {
+    background-color: #050505;
+    text-align: center;
+    padding: 2.5rem 2rem 2rem;
+    border-top: 2px solid #e63946;
+    margin-top: 3rem;
+}
+
+.footer-links {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.footer-links a {
+    color: #cccccc;
+    text-decoration: none;
+    margin: 0 0.8rem;
+    transition: all 0.25s ease;
+    padding: 0.25rem 0;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #e63946;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.footer-links a:hover {
+    color: #e63946;
+}
+
+footer p {
+    font-size: 0.85rem;
+    color: #888888;
+    margin-bottom: 0.5rem;
+}
+
+/* Footer Credit Line - Premium Refinement */
+.footer-credit {
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid #2a2a2a;
+}
+
+.footer-credit span {
+    font-size: 0.8rem;
+    color: #aaaaaa;
+    margin-right: 5px;
+}
+
+.footer-credit a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.footer-credit a:hover {
+    color: #e63946;
+}
+
+.footer-credit a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #e63946;
+    transition: width 0.3s ease;
+}
+
+.footer-credit a:hover::after {
+    width: 100%;
+}
+.footer-slogan {
+    font-size: 0.9rem;
+    color: #e63946;
+    font-style: italic;
+    margin: 0.5rem 0;
+    letter-spacing: 0.5px;
+}
+/* ========================================
+   RESPONSIVE DESIGN (Mobile Polish - Refinement #9)
+======================================== */
+
+/* Tablet & Mobile (max-width: 992px) */
+@media (max-width: 992px) {
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+    
+    .section {
+        padding: 3.5rem 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.6rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .social-icons a {
+        margin: 0 0.8rem;
+    }
+    
+    header {
+        padding: 0.8rem 1rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+    
+    .hero {
+        padding: 3.5rem 1.2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+    
+    /* More breathing space between stacked elements (Refinement #9) */
+    .card-grid {
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .price-card.popular {
+        transform: scale(1);
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.2rem;
+    }
+    
+    /* Footer spacing polish */
+    .footer-links {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .footer-links a {
+        margin: 0;
+    }
+    
+    .footer-links a::after {
+        display: none;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .section {
+        padding: 2.5rem 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
+    
+    /* Reduce visual density in hero text (Refinement #9) */
+    .hero {
+        padding: 2.5rem 1rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.3rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .card, .price-card {
+        padding: 1.5rem 1.2rem;
+    }
+    
+    .price {
+        font-size: 1.8rem;
+    }
+    
+    .sidebar {
+        width: 280px;
+    }
+    
+    .sidebar-nav li a {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .whatsapp-btn {
+        display: block;
+        text-align: center;
+    }
+    
+    /* Footer not compressed (Refinement #9) */
+    footer {
+        padding: 2rem 1rem 1.5rem;
+    }
+    
+    footer p {
+        font-size: 0.75rem;
+    }
+}
+
+/* Desktop Large (min-width: 1200px) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .hero-content h2 {
+        font-size: 3.5rem;
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES
+======================================== */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+/* Smooth scrolling for whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+button:focus, a:focus, input:focus, textarea:focus {
+    outline: 2px solid #e63946;
+    outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+    background-color: #e63946;
+    color: #ffffff;
+}
