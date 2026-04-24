@@ -620,6 +620,76 @@ form input:focus, form textarea:focus {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
 }
+/* ========================================
+   PREMIUMWHATSAPp btn
+======================================== */
+
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+
+    padding: 10px 14px;
+    border-radius: 50px;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    z-index: 9999;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+    transition: all 0.25s ease;
+
+    /* smooth modern feel */
+    backdrop-filter: blur(6px);
+}
+
+/* Icon */
+.floating-whatsapp i {
+    font-size: 1.15rem;
+}
+
+/* Hover */
+.floating-whatsapp:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+}
+
+/* Click feedback */
+.floating-whatsapp:active {
+    transform: scale(0.97);
+}
+
+/* for phones */
+@media (max-width: 480px) {
+    .floating-whatsapp {
+        bottom: 14px;
+        right: 14px;
+        padding: 9px 12px;
+        font-size: 0.85rem;
+    }
+
+    .floating-whatsapp i {
+        font-size: 1.05rem;
+    }
+}
+
+/* Hidden state that i will put on js */
+.floating-whatsapp.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    pointer-events: none;
+}
 
 /* ----- FOOTER REFINEMENT ----- */
 footer {
