@@ -230,6 +230,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    // -----for whatsaapp btn to llok nice on mobimle phones 
+    const whatsappBtn = document.querySelector('.floating-whatsapp');
+const footer = document.querySelector('footer');
+
+if (whatsappBtn && footer) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                whatsappBtn.classList.add('hide');
+            } else {
+                whatsappBtn.classList.remove('hide');
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    observer.observe(footer);
+}
     
     // ----- ADD YEAR TO FOOTER AUTOMATICALLY (Optional) -----
     const footerYear = document.querySelector('footer p');
