@@ -690,6 +690,45 @@ form input:focus, form textarea:focus {
     transform: translateY(20px);
     pointer-events: none;
 }
+/* WhatsApp Floating so that it does break like on servies*/
+.floating-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: all 0.25s ease;
+}
+
+.floating-whatsapp i {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .floating-whatsapp {
+    bottom: 14px;
+    right: 14px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    gap: 4px;
+  }
+  .floating-whatsapp i {
+    font-size: 1.05rem;
+  }
+}
+
 
 /* ----- FOOTER REFINEMENT ----- */
 footer {
